@@ -1,4 +1,4 @@
-class Api::FavoritesController < ApplicationController
+class FavoritesController < ApplicationController
 
     before_action :set_user
 

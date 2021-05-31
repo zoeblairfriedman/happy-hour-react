@@ -1,4 +1,4 @@
-class Api::BarsController < ApplicationController
+class BarsController < ApplicationController
 
     def index
         @bars = Bar.all
