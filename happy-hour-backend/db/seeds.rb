@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-bar = Bar.create(name: 'Porchlight', place_id: 'ChIJL4_WOLZZwokRkCkqv1Mqrls')
+bar = Bar.create(name: 'Porchlight', place_id: 'ChIJL4_WOLZZwokRkCkqv1Mqrls', lat: 40.742810, lng: -74.008870, details: "expensive happy hour cocktails")
 
-user = User.create(blah)
+user = User.create(name: "Mom", email: "Mom@email.com")
 
-favorite = Favorite.create(blah)
+favorite = Favorite.create(user_id: 1, bar_id: 1)
