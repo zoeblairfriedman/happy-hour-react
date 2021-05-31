@@ -1,0 +1,35 @@
+verified happy-hour spots (Bar)
+has_many favorites
+
+id 
+name
+days of the week: [] <---these may need to be DOW booleans
+start time datetime
+end time datetime
+date verified datetime
+deals: string
+address
+phone
+site
+pic
+
+
+User
+has_many favorites
+has_many bars through :favorites
+
+id
+name
+password_digest
+email
+
+Favorites
+belongs_to user 
+belongs_to bar
+
+
+
+wishlist:
+
+gold stars for most recent verification
+
