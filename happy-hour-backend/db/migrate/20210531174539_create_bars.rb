@@ -2,7 +2,7 @@ class CreateBars < ActiveRecord::Migration[6.1]
   def change
     create_table :bars do |t|
       t.string :name
-      t.datetime: :verified
+      t.datetime :verified
       t.boolean :sunday
       t.boolean :monday
       t.boolean :tuesday
@@ -16,6 +16,7 @@ class CreateBars < ActiveRecord::Migration[6.1]
       t.integer :phone
       t.string :website
       t.string :image
+      t.string :place_id
 
       t.timestamps
     end
