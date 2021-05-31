@@ -14,6 +14,9 @@ class CreateBars < ActiveRecord::Migration[6.1]
       t.datetime :end
       t.text :details
       t.integer :phone
+      t.string :address
+      t.decimal :lat
+      t.decimal :lng
       t.string :website
       t.string :image
       t.string :place_id

@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+bar = Bar.create(name: 'Porchlight', place_id: 'ChIJL4_WOLZZwokRkCkqv1Mqrls')
+
+user = User.create(blah)
+
+favorite = Favorite.create(blah)
