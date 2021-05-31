@@ -4,4 +4,5 @@ class Bar < ApplicationRecord
     validates_uniqueness_of :place_id
     validates :name, presence: true
 
+
 end
