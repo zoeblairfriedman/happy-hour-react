@@ -2,7 +2,8 @@ require 'httparty'
 require 'pry'
 require_relative ("../lib/bar")
 
-class ApiController < ApplicationController
+class GoogleApiController < ApplicationController
+    # GOD KNOWS IF THIS WORKS
 
     # this needs to not be here:
     API = "AIzaSyAaSwC5MoX0vLziJApwVjWZYHxmsdz077Y"
