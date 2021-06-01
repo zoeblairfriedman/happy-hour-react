@@ -3,10 +3,10 @@ import {connect} from 'react-redux'
 import BarInput from '../components/BarInput'
 import Bars from '../components/Bars'
 import {fetchBarsBackend} from '../actions/fetchBarsBackend'
+import Map from '../components/Map';
 
 
 class BarsContainer extends React.Component {
-
 
     componentDidMount(){
         this.props.fetchBarsBackend()
@@ -17,10 +17,12 @@ class BarsContainer extends React.Component {
             Bars Container
             <BarInput/>
             <Bars bars={this.props.bars}/>
+            <Map bars={this.props.bars}/>
         </div>
     }
 
 }
+
 
 const mapStateToProps = state => {
     return {
