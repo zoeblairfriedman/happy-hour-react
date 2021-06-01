@@ -4,6 +4,7 @@ import BarInput from '../components/BarInput'
 import Bars from '../components/Bars'
 import {fetchBarsBackend} from '../actions/fetchBarsBackend'
 
+
 class BarsContainer extends React.Component {
 
 
