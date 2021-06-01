@@ -34,6 +34,12 @@ export default function MapContainer(){
     if (!isLoaded) return "Loading Maps"
 
     return <div>
+        <h1>
+            Happy Hour {" "}
+            <span role="img" aria-label="drink">
+            🍹
+            </span>
+        </h1>
         <GoogleMap mapContainerStyle={mapContainerStyle} zoom={12.7} center={center} options={options}></GoogleMap>
     </div>
 
