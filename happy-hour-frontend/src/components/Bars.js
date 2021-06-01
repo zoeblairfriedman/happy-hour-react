@@ -7,7 +7,7 @@ console.log(props.bars)
     return (
         <div>
             Bars:
-    {props.bars.map(b =><li>{b.name}</li>)}
+    {props.bars.map(b =><li key={b.id}>{b.name}</li>)}
         </div>
     )
 }

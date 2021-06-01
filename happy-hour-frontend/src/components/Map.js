@@ -1,10 +1,8 @@
 import React, {useState} from 'react'
 import {GoogleMap, useLoadScript, Marker, InfoWindow} from "@react-google-maps/api"
-// import {formatRelative} from "data-fns"
-import "@reach/combobox/styles.css";
 import mapStyles from '../mapStyles'
-
-
+import "@reach/combobox/styles.css";
+import Search from './Search'
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -16,7 +14,7 @@ const center = {
     lng: -73.935242
 }
 
-// don't love this style. snazzy maps check?
+//snazzy maps for this! 
 const options = {
     styles: mapStyles,
     disableDefaultUI: true,
@@ -25,6 +23,7 @@ const options = {
 
 export default function Map(props){
 
+    //this is my state for my selected bars, starting as null, getting value when clicked
     const [selectedBar, setSelectedBar] = useState(null);
 
     const { isLoaded, loadError } = useLoadScript ({
@@ -32,17 +31,21 @@ export default function Map(props){
     libraries
     })
 
+    //saving it to useRef lets us retain state without rerendering
+    const mapRef = React.useRef();
+    const onMapLoad = React.useCallback((map) => {
+        mapRef.current = map;
+    }, [])
+
     if (loadError) return "Error loading maps"
     if (!isLoaded) return "Loading Maps"
 
     return <div>
-        <h1> Happy Hour
-            {/* Happy Hour {" "}
-            <span role="img" aria-label="drink">
-            🍹
-            </span> */}
-        </h1>
-        <GoogleMap mapContainerStyle={mapContainerStyle} zoom={12.7} center={center} options={options}>
+        <h1> Happy Hour </h1>
+        
+        <Search/>
+
+        <GoogleMap mapContainerStyle={mapContainerStyle} zoom={12.7} center={center} options={options} onLoad={onMapLoad}>
         {props.bars.map(b => (
             console.log(b),
             <Marker key={b.id} position={{
@@ -51,6 +54,7 @@ export default function Map(props){
             }} 
             onClick={() => {
                 setSelectedBar(b)
+               // open bar details separately! 
             }}
             icon={{
                 url: "/tropical.png",
@@ -68,7 +72,6 @@ export default function Map(props){
             }}>
                 <div>
                     <h3>{selectedBar.name}</h3>
-                    <p>{selectedBar.details}</p>
                 </div>
                 </InfoWindow>
         )}
