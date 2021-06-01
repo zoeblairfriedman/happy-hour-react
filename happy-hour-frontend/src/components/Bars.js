@@ -2,15 +2,14 @@ import React from 'react'
 
 
 const Bars = (props) => {
-
+console.log(props.bars)
     return (
         <div>
-            Baaaaaarrrssss
+            Bars:
+    {props.bars.map(b =><li>{b.name}</li>)}
+            Map:
         </div>
     )
-
-
-
 }
 
 export default Bars; 

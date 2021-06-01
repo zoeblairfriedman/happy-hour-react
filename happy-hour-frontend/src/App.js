@@ -6,10 +6,6 @@ import BarsContainer from './containers/BarsContainer'
 class App extends React.Component {
 
 
-componentDidMount(){
-// this.props.fetchBars()
-}
-
 
   render () {
     return (

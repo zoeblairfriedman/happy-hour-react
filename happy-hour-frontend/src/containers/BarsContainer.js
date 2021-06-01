@@ -2,13 +2,13 @@ import React from 'react'
 import {connect} from 'react-redux'
 import BarInput from '../components/BarInput'
 import Bars from '../components/Bars'
-import {fetchBars} from '../actions/fetchBars'
+import {fetchBarsBackend} from '../actions/fetchBarsBackend'
 
 class BarsContainer extends React.Component {
 
 
     componentDidMount(){
-        this.props.fetchBars()
+        this.props.fetchBarsBackend()
     }
 
     render(){
@@ -27,4 +27,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {fetchBars})(BarsContainer);
+export default connect(mapStateToProps, {fetchBarsBackend})(BarsContainer);

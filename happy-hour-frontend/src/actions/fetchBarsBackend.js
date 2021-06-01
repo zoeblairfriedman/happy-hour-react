@@ -1,4 +1,4 @@
-export function fetchBars(){
+export function fetchBarsBackend(){
 return (dispatch) => {
     fetch('http://localhost:3000/bars')
   .then(r => r.json())
@@ -7,7 +7,5 @@ return (dispatch) => {
       payload: bars
   }))
 }
-
-
 }
 
