@@ -1,17 +1,26 @@
 
 import React from 'react';
-import ReactDOM from 'react-dom';
-
-
+import {connect} from 'react-redux'
+import BarsContainer from './containers/BarsContainer'
 
 class App extends React.Component {
 
+
+componentDidMount(){
+// this.props.fetchBars()
+}
+
+
   render () {
     return (
-      <div> LET'S GO! </div>
+      <div> Happy Hour App Root
+      <BarsContainer/>  
+      </div>
     )
   }
   
 }
 
-export default App;
+
+
+export default connect()(App);
