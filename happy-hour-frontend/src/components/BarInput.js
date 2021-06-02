@@ -20,12 +20,18 @@ class BarInput extends React.Component {
            [event.target.name]: event.target.value
         })
     }
-
+ 
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.addBar(this.state)
         ///this is not working?
-        event.target.reset()
+        this.setState({
+            name: "",
+            details: "",
+            lat: 0,
+            lng: 0,
+            place_id: ""
+        })
     }
 
 
