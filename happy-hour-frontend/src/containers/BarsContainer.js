@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import BarInput from '../components/BarInput'
-import Bars from '../components/Bars'
 import {fetchBarsBackend} from '../actions/fetchBarsBackend'
 import Map from '../components/Map';
 
@@ -13,11 +12,9 @@ class BarsContainer extends React.Component {
     }
 
     render(){
-        return <div>
-            Bars Container
-            <BarInput/>
-            <Bars bars={this.props.bars}/>
+        return <div className='sideBySide'>
             <Map bars={this.props.bars}/>
+            <BarInput/>
         </div>
     }
 
@@ -26,7 +23,7 @@ class BarsContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        bars: state.bars
+        bars: state.bars,
     }
 }
 

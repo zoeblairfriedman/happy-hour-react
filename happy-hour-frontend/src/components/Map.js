@@ -31,6 +31,12 @@ export default function Map(props){
     libraries
     })
 
+    // useCallback to "it only ever creates one of these functions???" what is the empty array after?
+    const panTo = React.useCallback(({lat, lng}) => {
+        mapRef.current.panTo({lat, lng});
+        mapRef.current.setZoom(14);
+        }, []) 
+
     //saving it to useRef lets us retain state without rerendering
     const mapRef = React.useRef();
     const onMapLoad = React.useCallback((map) => {
@@ -40,10 +46,11 @@ export default function Map(props){
     if (loadError) return "Error loading maps"
     if (!isLoaded) return "Loading Maps"
 
-    return <div>
+    return( 
+    <div>
         <h1> Happy Hour </h1>
         
-        <Search/>
+        <Search panTo={panTo}/>
 
         <GoogleMap mapContainerStyle={mapContainerStyle} zoom={12.7} center={center} options={options} onLoad={onMapLoad}>
         {props.bars.map(b => (
@@ -77,5 +84,5 @@ export default function Map(props){
         )}
         </GoogleMap>
     </div>
-
+    )
 }

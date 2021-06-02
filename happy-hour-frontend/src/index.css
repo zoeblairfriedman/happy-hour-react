@@ -14,17 +14,22 @@ code {
 
 h1 {
   position: absolute;
-  top: 6rem;
+  top: 0rem;
   z-index: 10;
   left: 1rem;
 }
 
 .search {
   position: absolute;
-  top: 8rem;
+  top: 1rem;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
   max-width: 300px;
   z-index: 10;
+}
+
+.sideBySide{
+  display:flex; 
+  flex-direction:row;
 }

@@ -12,7 +12,7 @@ class App extends React.Component {
   render () {
 
     return (
-      <div> Happy Hour App Root
+      <div>
       <BarsContainer/>  
       </div>
     )

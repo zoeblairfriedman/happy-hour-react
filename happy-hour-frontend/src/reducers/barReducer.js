@@ -1,10 +1,14 @@
 
 
-export default function barReducer(state = {bars: []}, action){
+export default function barReducer(state = {bars: [], location: {}}, action){
     switch(action.type){
         case "FETCH_BARS":
-            // i want to return a new version of state where the bars points to the payload
-            return {bars: action.payload}
+            return {...state, bars: action.payload}
+        case "SET_LOCATION":
+            return {
+                ...state,
+                location: action.payload
+            }
         default:
             return state
     }
