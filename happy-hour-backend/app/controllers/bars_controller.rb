@@ -11,11 +11,13 @@ class BarsController < ApplicationController
     end
 
     def create
+        binding.pry
         @bar = Bar.new(bar_params)
         if @bar.save
             render json: @bar
         else
             # do something else
+            binding.pry
             @errors = @bar.errors.full_messages
             render json: @errors
         end
@@ -33,7 +35,7 @@ class BarsController < ApplicationController
     private
 
     def bar_params
-        params.require(:bar).permit(:name, :verified, :sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :start, :end, :phone, :address, :lat, :lng, :website, :image, :place_id)
+        params.require(:bar).permit(:name, :verified, :sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :start, :end, :phone, :address, :lat, :lng, :website, :image, :place_id, :details)
     end
 
 end
