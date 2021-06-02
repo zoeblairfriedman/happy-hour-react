@@ -11,13 +11,11 @@ class BarsController < ApplicationController
     end
 
     def create
-        binding.pry
         @bar = Bar.new(bar_params)
         if @bar.save
             render json: @bar
         else
             # do something else
-            binding.pry
             @errors = @bar.errors.full_messages
             render json: @errors
         end

@@ -24,6 +24,8 @@ class BarInput extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.addBar(this.state)
+        ///this is not working?
+        event.target.reset()
     }
 
 

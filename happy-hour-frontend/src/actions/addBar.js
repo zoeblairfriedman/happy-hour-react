@@ -9,6 +9,9 @@ export const addBar = (formData) => {
             body: JSON.stringify(formData)
         })
         .then(r => r.json())
-        .then(d => console.log(d))
+        .then(bar => dispatch({
+            type: "ADD_BAR",
+            payload: bar
+        }))
     }
 }

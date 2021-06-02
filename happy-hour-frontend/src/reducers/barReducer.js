@@ -5,7 +5,7 @@ export default function barReducer(state = {bars: [], location: {}}, action){
         case "FETCH_BARS":
             return {...state, bars: action.payload}
         case "ADD_BAR":
-                debugger
+            return {...state, bars: [...state.bars, action.payload]}
         case "SET_LOCATION":
             return {
                 ...state,
