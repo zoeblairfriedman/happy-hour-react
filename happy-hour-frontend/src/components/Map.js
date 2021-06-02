@@ -4,6 +4,7 @@ import mapStyles from '../mapStyles'
 import "@reach/combobox/styles.css";
 import Search from './Search'
 import Bar from '../components/Bar'
+import {Route} from 'react-router-dom'
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -52,7 +53,6 @@ export default function Map(props){
         <h1> Happy Hour </h1>
         
         <Search panTo={panTo}/>
-
         <GoogleMap mapContainerStyle={mapContainerStyle} zoom={12.7} center={center} options={options} onLoad={onMapLoad}>
         {props.bars.map(b => (
             console.log(b),
@@ -72,6 +72,7 @@ export default function Map(props){
         )}
 
         {selectedBar && (
+            <>
             <InfoWindow position={{
                 lat: parseFloat(selectedBar.lat),
                 lng: parseFloat(selectedBar.lng)
@@ -81,10 +82,12 @@ export default function Map(props){
                 <div>
                     <h3>{selectedBar.name}</h3>
                 </div>
-                </InfoWindow>
-        )}
+                </InfoWindow> 
+           
+            </>
+        )} 
+       
         </GoogleMap>
-      
         <Bar bar={selectedBar}/>
 
     </div>
