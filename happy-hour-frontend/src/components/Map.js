@@ -3,6 +3,7 @@ import {GoogleMap, useLoadScript, Marker, InfoWindow} from "@react-google-maps/a
 import mapStyles from '../mapStyles'
 import "@reach/combobox/styles.css";
 import Search from './Search'
+import Bar from '../components/Bar'
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -83,6 +84,9 @@ export default function Map(props){
                 </InfoWindow>
         )}
         </GoogleMap>
+      
+        <Bar bar={selectedBar}/>
+
     </div>
     )
 }

@@ -12,12 +12,17 @@ class BarsContainer extends React.Component {
     }
 
     render(){
-        return <div className='sideBySide'>
+        return(
+        <div>
+            
+        <div className='sideBySide'>
             <Map bars={this.props.bars}/>
             <BarInput/>
         </div>
-    }
-
+     
+        </div>
+        )
+        }
 }
 
 
