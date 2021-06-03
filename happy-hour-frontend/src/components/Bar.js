@@ -8,7 +8,6 @@ const Bar = (props) => {
     return (
         <div>
             <h2>{props.bar.name}</h2>
-            <p>{props.bar.details}</p>
         </div>
     )
 } else {

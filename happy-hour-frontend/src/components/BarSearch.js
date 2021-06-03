@@ -1,26 +1,45 @@
 import {connect} from 'react-redux'
 import React, { useState } from 'react';
-
+import { fetchGoogleBars } from '../actions/fetchGoogleBars'
+import { useDispatch } from "react-redux";
+import GoogleBar from './GoogleBar'
+import BarInput from './BarInput'
 
 
 function BarSearch(props) {
 
-    const [googleBars, setGoogleBars] = useState([]);
+    const [selectedBar, setSelectedBar] = useState()
+
+    function handleClick(bar){
+        setSelectedBar(bar)
+    }
+    
+    const dispatch = useDispatch()
 
     const searchBars = () => {
         const lat = props.location.lat
         const lng = props.location.lng
-        fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=500&types=bar&keyword=happyhour&key=AIzaSyBEBEXXRvP5A3JAuZ2hL2Z2ShMPxzWeMxQ`)
-        .then(r => r.json())
-        .then(bars => setGoogleBars(bars.results.map(b => b)))
+        dispatch(fetchGoogleBars(lat, lng))
     }
 
-
+       if (!selectedBar) {
         return (
             <div>
-           <button onClick={() => {searchBars()}}>Check Google</button>
+           <button onClick={() => {searchBars()}}>Add new Bar through Google Search</button>
+          {props.googleBars.map(b => 
+          <>
+          <GoogleBar bar={b}/>
+          <button onClick={()=> handleClick(b)}>verify happy hour</button>
+          </>
+          )}
             </div>
-        )
+        )} else {
+            return(
+                <div>
+                    <BarInput bar={selectedBar}/>
+                </div>
+            )
+        }
     
     
 }
@@ -28,7 +47,8 @@ function BarSearch(props) {
 const mapStateToProps = state => {
         return {
             location: state.location,
+            googleBars: state.googleBars
         }
     }
-
+//i feel like i'm not supposed to be using connect here, right?
 export default connect(mapStateToProps)(BarSearch);

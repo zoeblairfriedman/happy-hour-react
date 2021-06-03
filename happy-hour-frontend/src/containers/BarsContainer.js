@@ -1,9 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import BarInput from '../components/BarInput'
 import {fetchBarsBackend} from '../actions/fetchBarsBackend'
 import Map from '../components/Map';
 import {Route} from 'react-router-dom'
+import BarSearch from '../components/BarSearch'
 
 
 class BarsContainer extends React.Component {
@@ -18,7 +18,7 @@ class BarsContainer extends React.Component {
 
         <div className='sideBySide'>
             <Route path="/bars" render={() => <Map bars={this.props.bars}/>}/>
-            <Route path='/bars/new' component={BarInput}/>
+            <Route path='/bars/new' component={BarSearch}/>
         </div>
      
         </div>

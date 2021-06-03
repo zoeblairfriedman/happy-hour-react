@@ -1,19 +1,14 @@
-import {GoogleMap, useLoadScript, Marker, InfoWindow} from "@react-google-maps/api"
-
-export function fetchGoogleBars(locationObj){
 
 
-    // return (dispatch) => {
-    //     fetch('http://localhost:3000/bars')
-    //   .then(r => r.json())
-    //   .then(bars => dispatch({
-    //       type: "FETCH_BARS", 
-    //       payload: bars
-    //   }))
-    // }
-
-    console.log(locationObj)
-    
+export function fetchGoogleBars(lat, lng){
+    return (dispatch) => {
+        fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=500&types=bar&keyword=happyhour&key=AIzaSyBEBEXXRvP5A3JAuZ2hL2Z2ShMPxzWeMxQ`)
+        .then(r => r.json())
+        .then(bars => dispatch({
+            type: "GOOGLE_BARS", 
+            payload: bars.results
+        }))
     }
     
+    }
     
