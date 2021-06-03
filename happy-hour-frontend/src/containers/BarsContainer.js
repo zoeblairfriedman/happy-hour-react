@@ -18,8 +18,6 @@ class BarsContainer extends React.Component {
 
         <div className='sideBySide'>
             <Route path="/bars" render={() => <Map bars={this.props.bars}/>}/>
-            {/* <Map bars={this.props.bars}/> */}
-            {/* <BarInput/> */}
             <Route path='/bars/new' component={BarInput}/>
         </div>
      

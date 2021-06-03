@@ -27,17 +27,18 @@ belongs_to user
 belongs_to bar
 
 TO DO:
+add all necessary attributes to form and show pages
 setup password, login etc. 
-get SOMETHING up
-bootstrap for grids?
+
+
 
 WISHLIST:
 gold stars for most recent verification
 
-QUESTIONS:
-is my api in the right place? (controller)
 
 
 IF YOU WANT DYNAMIC LINKS FOR THE bars
 rewatch the livebuild with the link_to and the history and match, etc
 
+THE USER FAVORITES
+When you want to do users and nested routes for their favorites check out video 7 around 12 minutes in or check out accounts container in the repo

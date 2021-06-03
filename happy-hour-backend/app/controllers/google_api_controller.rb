@@ -5,7 +5,7 @@ require_relative ("../lib/bar")
 class GoogleApiController < ApplicationController
 
     # this needs to not be here:
-    API = "AIzaSyAaSwC5MoX0vLziJApwVjWZYHxmsdz077Y"
+    API = "AIzaSyBEBEXXRvP5A3JAuZ2hL2Z2ShMPxzWeMxQ"
 
     def self.make_request(input)
         result = Geocoder.search(input)

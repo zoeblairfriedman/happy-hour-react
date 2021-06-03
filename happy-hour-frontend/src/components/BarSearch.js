@@ -1,26 +1,26 @@
-import React from 'react'
 import {connect} from 'react-redux'
-import {fetchGoogleBars} from '../actions/fetchGoogleBars'
+import React, { useState } from 'react';
 
-class BarSearch extends React.Component {
 
-    // state = {
-    //     googleBars: []
-    // }
 
-    searchBars = () => {
-    fetchGoogleBars(this.props.location)
+function BarSearch(props) {
+
+    const [googleBars, setGoogleBars] = useState([]);
+
+    const searchBars = () => {
+        const lat = props.location.lat
+        const lng = props.location.lng
+        fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=500&types=bar&keyword=happyhour&key=AIzaSyBEBEXXRvP5A3JAuZ2hL2Z2ShMPxzWeMxQ`)
+        .then(r => r.json())
+        .then(bars => setGoogleBars(bars.results.map(b => b)))
     }
 
 
-    render(){
         return (
             <div>
-           <button onClick={() => {this.searchBars()}}>Check Google</button>
+           <button onClick={() => {searchBars()}}>Check Google</button>
             </div>
         )
-    }
-
     
     
 }
@@ -31,4 +31,4 @@ const mapStateToProps = state => {
         }
     }
 
-export default connect(mapStateToProps, {fetchGoogleBars})(BarSearch);
+export default connect(mapStateToProps)(BarSearch);

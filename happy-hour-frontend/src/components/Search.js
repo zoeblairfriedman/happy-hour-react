@@ -18,8 +18,6 @@ function Search({panTo}){
 
 const dispatch = useDispatch()
 
-
-
     return (
     <div className="search">
         <Combobox onSelect={async (address) => {

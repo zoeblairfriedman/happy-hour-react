@@ -4,7 +4,7 @@ import mapStyles from '../mapStyles'
 import "@reach/combobox/styles.css";
 import Search from './Search'
 import Bar from '../components/Bar'
-import {Route} from 'react-router-dom'
+
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -62,7 +62,6 @@ export default function Map(props){
             }} 
             onClick={() => {
                 setSelectedBar(b)
-               // open bar details separately! 
             }}
             icon={{
                 url: "/tropical.png",

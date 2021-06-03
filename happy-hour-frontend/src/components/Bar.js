@@ -16,4 +16,4 @@ const Bar = (props) => {
 }
  }
 
-export default Bar; 
+export default Bar;  
