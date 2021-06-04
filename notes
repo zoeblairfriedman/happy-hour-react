@@ -31,6 +31,7 @@ add all necessary attributes to form and show pages
 fix button so it doesn't sho wuntil the search
 setup password, login etc. 
 reformat phone input to maek it a clean integer
+fix it so that unverified bars aren't from fucking 1969
 
 
 

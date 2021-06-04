@@ -43,13 +43,13 @@ class BarInput extends React.Component {
             details: "",
             phone: 0,
             website: "",
-            monday: undefined,
-            tuesday: undefined,
-            wednesday: undefined,
-            thursday: undefined,
-            friday: undefined,
-            saturday: undefined,
-            sunday: undefined,
+            monday: false,
+            tuesday: false,
+            wednesday: false,
+            thursday: false,
+            friday: false,
+            saturday: false,
+            sunday: false,
             start: undefined,
             end: undefined
         })
@@ -63,7 +63,6 @@ class BarInput extends React.Component {
          ...this.state,
          verified: new Date
      })
-     console.log(typeof this.state.verified)
     }
 
 // make sure this verification logic works
