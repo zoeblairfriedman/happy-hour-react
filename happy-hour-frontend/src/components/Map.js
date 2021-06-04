@@ -55,7 +55,6 @@ export default function Map(props){
         <Search panTo={panTo}/>
         <GoogleMap mapContainerStyle={mapContainerStyle} zoom={12.7} center={center} options={options} onLoad={onMapLoad}>
         {props.bars.map(b => (
-            console.log(b),
             <Marker key={b.id} position={{
                 lat: parseFloat(b.lat),
                 lng: parseFloat(b.lng)

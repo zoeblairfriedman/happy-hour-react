@@ -21,14 +21,13 @@ function BarSearch(props) {
         const lng = props.location.lng
         dispatch(fetchGoogleBars(lat, lng))
     }
-console.log(selectedBar)
        if (!selectedBar) {
         return (
             <div>
            <button onClick={() => {searchBars()}}>Add new Bar through Google Search</button>
           {props.googleBars.map(b => 
           <div onClick={()=> handleClick(b)}>
-          <GoogleBar bar={b}/>
+          <GoogleBar key={b.place_id} bar={b}/>
           </div>
           )}
             </div>

@@ -13,9 +13,9 @@ class BarsController < ApplicationController
     def create
         @bar = Bar.new(bar_params)
         if @bar.save
+            binding.pry
             render json: @bar
         else
-            # do something else
             @errors = @bar.errors.full_messages
             render json: @errors
         end

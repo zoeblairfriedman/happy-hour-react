@@ -10,8 +10,8 @@ class CreateBars < ActiveRecord::Migration[6.1]
       t.boolean :thursday
       t.boolean :friday
       t.boolean :saturday
-      t.datetime :start
-      t.datetime :end
+      t.time :start
+      t.time :end
       t.text :details
       t.integer :phone
       t.string :address

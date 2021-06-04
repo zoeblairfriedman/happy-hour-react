@@ -28,7 +28,9 @@ belongs_to bar
 
 TO DO:
 add all necessary attributes to form and show pages
+fix button so it doesn't sho wuntil the search
 setup password, login etc. 
+reformat phone input to maek it a clean integer
 
 
 
