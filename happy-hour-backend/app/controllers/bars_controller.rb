@@ -2,18 +2,18 @@ class BarsController < ApplicationController
 
     def index
         @bars = Bar.all
-        render json: @bars
+        render json: @bars, key_transform: :camel_lower
     end
 
     def show
         @bar = Bar.find(params[:id])
-        render json: @bar
+        render json: @bar, key_transform: :camel_lower
     end
 
     def create
         @bar = Bar.new(bar_params)
         if @bar.save
-            render json: @bar
+            render json: @bar,  key_transform: :camel_lower
         else
             @errors = @bar.errors.full_messages
             render json: @errors
