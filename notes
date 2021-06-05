@@ -27,17 +27,18 @@ belongs_to user
 belongs_to bar
 
 TO DO:
-add all necessary attributes to form and show pages
 fix button so it doesn't sho wuntil the search
-setup password, login etc. 
-reformat phone input to maek it a clean integer
-fix it so that unverified bars aren't from fucking 1969
+add a route!!!
+make you not have to refresh
 
-
+get image going
+add styling
+are unverified bars from 1969??
 
 WISHLIST:
+reformat phone input to maek it a clean integer
 gold stars for most recent verification
-
+setup password, login etc. 
 
 
 IF YOU WANT DYNAMIC LINKS FOR THE bars
