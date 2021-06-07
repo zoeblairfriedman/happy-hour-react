@@ -3,8 +3,8 @@ import {GoogleMap, useLoadScript, Marker, InfoWindow} from "@react-google-maps/a
 import mapStyles from '../mapStyles'
 import "@reach/combobox/styles.css";
 import Search from './Search'
-import Bar from '../components/Bar'
-
+import {useDispatch} from 'react-redux'
+import {selectBar} from '../actions/selectBar'
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -27,7 +27,7 @@ export default function Map(props){
 
     //this is my state for my selected bars, starting as null, getting value when clicked
     const [selectedBar, setSelectedBar] = useState(null);
-
+    const dispatch = useDispatch()
     const { isLoaded, loadError } = useLoadScript ({
     googleMapsApiKey: "AIzaSyBEBEXXRvP5A3JAuZ2hL2Z2ShMPxzWeMxQ",
     libraries
@@ -48,6 +48,7 @@ export default function Map(props){
     if (loadError) return "Error loading maps"
     if (!isLoaded) return "Loading Maps"
 
+  
     return( 
     <div>
         <h1> Happy Hour </h1>
@@ -61,6 +62,7 @@ export default function Map(props){
             }} 
             onClick={() => {
                 setSelectedBar(b)
+                dispatch(selectBar(b))
             }}
             icon={{
                 url: "/tropical.png",
@@ -86,7 +88,6 @@ export default function Map(props){
         )} 
        
         </GoogleMap>
-        <Bar bar={selectedBar}/>
 
     </div>
     )

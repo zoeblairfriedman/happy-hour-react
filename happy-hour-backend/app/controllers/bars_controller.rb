@@ -21,6 +21,14 @@ class BarsController < ApplicationController
     end
 
     def update
+        @bar = Bar.find(params[:id])
+        @bar.update(bar_params)
+        if @bar.save
+            render json: @bar,  key_transform: :camel_lower
+        else
+            @errors = @bar.errors.full_messages
+            render json: @errors
+        end
     end
 
     def destroy

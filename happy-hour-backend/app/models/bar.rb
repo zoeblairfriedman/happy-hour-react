@@ -11,7 +11,7 @@ class Bar < ApplicationRecord
             dates.push(key)
           end
         end 
-        return dates
+        return dates.join(" ")
     end
 
 end

@@ -42,6 +42,7 @@ const dispatch = useDispatch()
                 disabled={!ready}
                 placeholder="Where are we drinking?"
                 />
+        {/* is this where my key error is coming from? revisit this in video rewatch please */}
         <ComboboxPopover>
             {status === "OK" && data.map(({id, description})=>
             <ComboboxOption key={id} value={description}/>

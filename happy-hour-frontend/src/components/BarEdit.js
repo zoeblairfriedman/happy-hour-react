@@ -1,30 +1,28 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { addBar } from '../actions/addBar'
+import { editBar } from '../actions/editBar'
 
 
-class BarInput extends React.Component {
+class BarEdit extends React.Component {
     
-
+// why isn't start and end autopopulating?
     state = {
         name: this.props.bar.name,
-        details: "",
-        lat: this.props.bar.geometry.location.lat,
-        lng: this.props.bar.geometry.location.lng,
-        place_id: this.props.bar.place_id,
-        address: this.props.bar.vicinity,
-        website: "",
-        phone: 0,
-        monday: false,
-        tuesday: false,
-        wednesday: false,
-        thursday: false,
-        friday: false,
-        saturday: false,
-        sunday: false,
-        start: "",
-        end: "",
-        verified: ""
+        details: this.props.bar.details,
+        phone: this.props.bar.phone,
+        days: this.props.bar.dateArray,
+        website: this.props.bar.website,
+        monday: this.props.bar.monday,
+        tuesday: this.props.bar.tuesday,
+        wednesday: this.props.bar.wednesday,
+        thursday: this.props.bar.thursday,
+        friday: this.props.bar.friday,
+        saturday: this.props.bar.saturday,
+        sunday: this.props.bar.sunday,
+        start: this.props.bar.militaryStart,
+        end: this.props.bar.militaryEnd,
+        verified: this.props.bar.verified,
+        id: this.props.bar.id
     }
 
     handleChange = (event) => {
@@ -38,7 +36,7 @@ class BarInput extends React.Component {
  
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addBar(this.state)
+        this.props.editBar(this.state)
         this.setState({
             name: "",
             details: "",
@@ -78,7 +76,7 @@ class BarInput extends React.Component {
                 
         return (
             <div>
-                Verify a happy hour:
+                Update:
                 <form onSubmit={this.handleSubmit}>
                     <h2>{this.state.name}</h2>
                     <input type="text" placeholder="website" value={this.state.website} name="website" onChange={this.handleChange} />
@@ -97,7 +95,8 @@ class BarInput extends React.Component {
                     <label>Saturday:</label><input type="checkbox" name="saturday" checked={this.state.saturday} onChange={this.handleChange}/>
                     <label>Sunday:</label><input type="checkbox" name="sunday" checked={this.state.sunday} onChange={this.handleChange}/>
                     <br></br>
-                    <textarea placeholder="details" value={this.state.details} name="details" onChange={this.handleChange}></textarea>                    <br/>
+                    <textarea placeholder="details" value={this.state.details} name="details" onChange={this.handleChange}></textarea>
+                    <br/>
                     <input type="submit"/>
                 </form>
                 {button}
@@ -115,4 +114,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, {addBar})(BarInput);
+export default connect(mapStateToProps, {editBar})(BarEdit);

@@ -26,7 +26,7 @@ function BarSearch(props) {
             <div>
            <button onClick={() => {searchBars()}}>Add new Bar through Google Search</button>
           {props.googleBars.map(b => 
-          <div onClick={()=> handleClick(b)}>
+          <div key={b.place_id} onClick={()=> handleClick(b)}>
           <GoogleBar key={b.place_id} bar={b}/>
           </div>
           )}
@@ -34,6 +34,8 @@ function BarSearch(props) {
         )} else {
             return(
                 <div>
+                    {/* here is where i want it to conditionally render */}
+                    {/* <BarEdit bar={bar}/> */}
                     <BarInput bar={selectedBar}/>
                 </div>
             )
