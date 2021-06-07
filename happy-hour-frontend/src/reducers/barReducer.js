@@ -11,7 +11,14 @@ export default function barReducer(state = {bars: [], googleBars: [], selectedBa
         case "SELECT_BAR":
             return {...state, selectedBar: action.payload}
         case "EDIT_BAR":
-            // do something here!!! 
+            let newBars = state.bars.map(b => {
+                if (b.id === action.payload.id){
+                    return action.payload
+                } else {
+                    return b
+                }
+            }) 
+            return {...state, bars: newBars}
         case "SET_LOCATION":
             return {
                 ...state,

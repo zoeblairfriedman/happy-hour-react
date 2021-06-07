@@ -2,9 +2,10 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {fetchBarsBackend} from '../actions/fetchBarsBackend'
 import Map from '../components/Map';
-import {Route} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import BarSearch from '../components/BarSearch'
 import Bar from '../components/Bar'
+import HappyNow from '../components/HappyNow'
 
 class BarsContainer extends React.Component {
 
@@ -18,8 +19,11 @@ class BarsContainer extends React.Component {
         <div>
 
         <div className='sideBySide'>
+            <Switch>
+            <Route exact path='/bars/now' component={HappyNow}/>
             <Route path="/bars" render={(routerProps) => <Map {...routerProps} bars={this.props.bars}/>}/>
-            <Route path='/bars/new' component={BarSearch}/>
+            </Switch>
+            <Route exact path='/bars/new' component={BarSearch}/>
         </div>
             <Bar bar={this.props.selectedBar !== "" ? this.props.selectedBar : ""}/>
         </div>

@@ -5,7 +5,6 @@ import { editBar } from '../actions/editBar'
 
 class BarEdit extends React.Component {
     
-// why isn't start and end autopopulating?
     state = {
         name: this.props.bar.name,
         details: this.props.bar.details,
