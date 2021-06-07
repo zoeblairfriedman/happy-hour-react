@@ -9,10 +9,10 @@ import BarEdit from './BarEdit'
 
 function BarSearch(props) {
 
-    const [selectedBar, setSelectedBar] = useState()
+    const [selected, setSelected] = useState()
 
     function handleClick(bar){
-        setSelectedBar(bar)
+        setSelected(bar)
     }
 
     function returnBar(bar){
@@ -26,10 +26,10 @@ function BarSearch(props) {
         const lng = props.location.lng
         dispatch(fetchGoogleBars(lat, lng))
     }
-       if (!selectedBar) {
+       if (!selected) {
         return (
-            <div>
-           <button onClick={() => {searchBars()}}>Search Area</button>
+            <div className="barList" >
+            <button onClick={() => {searchBars()}}>Search Area</button>
           {props.googleBars.map(b => 
           <div key={b.place_id} onClick={()=> handleClick(b)}>
           <GoogleBar key={b.place_id} bar={b}/>
@@ -39,7 +39,7 @@ function BarSearch(props) {
         )} else {
             return(
                 <div>
-                    {!!returnBar(selectedBar) ? <BarEdit bar={returnBar(selectedBar)}/> : <BarInput bar={selectedBar}/>}    
+                    {!!returnBar(selected) ? <BarEdit bar={returnBar(selected)}/> : <BarInput bar={selected}/>}    
                 </div>
             )
         }
@@ -54,5 +54,5 @@ const mapStateToProps = state => {
             bars: state.bars
         }
     }
-//i feel like i'm not supposed to be using connect here, right?
+//i feel like i'm not supposed to be using connect here, right? this should be use selector
 export default connect(mapStateToProps)(BarSearch);

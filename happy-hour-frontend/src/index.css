@@ -14,15 +14,15 @@ code {
 
 h1 {
   position: absolute;
-  top: 0rem;
+  top: 6rem;
   z-index: 10;
-  left: 1rem;
+  left: 2.5rem;
 }
 
 .search {
   position: absolute;
-  top: 1rem;
-  left: 50%;
+  top: 7rem;
+  left: 40%;
   transform: translateX(-50%);
   width: 100%;
   max-width: 300px;
@@ -32,6 +32,8 @@ h1 {
 .sideBySide{
   display:flex; 
   flex-direction:row;
+  /* background: rgba(107, 109, 107, 0.8); */
+  left: 2rem;
 }
 
 .unverified{
@@ -40,4 +42,37 @@ h1 {
 
 .verified{
   color: green
+}
+
+.mapContainer{
+  padding: 30px 30px;
+}
+
+
+.barList{
+  padding: 10px
+}
+
+.barShow{
+  background-image: url("./assets/signwide.png");
+  padding-left: 40px;
+  padding-top: 40px;
+  padding-bottom: 80px;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.nav {
+  background-color: yellow;
+  list-style-type: none;
+  text-align: center; 
+  padding: 0;
+  margin: 0;
+}
+
+.navli {
+  display: inline-block;
+  font-size: 20px;
+  padding: 20px;
 }

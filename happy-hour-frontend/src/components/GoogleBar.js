@@ -8,7 +8,7 @@ const GoogleBar = (props) => {
             if (props.bar !== null){
             return (
                 <div>
-                    <p>{props.bar.name}</p>
+                    <p className="barName">{props.bar.name}</p>
                 </div>
             )
         } else {

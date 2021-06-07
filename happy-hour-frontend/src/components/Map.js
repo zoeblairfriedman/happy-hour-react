@@ -5,15 +5,16 @@ import "@reach/combobox/styles.css";
 import Search from './Search'
 import {useDispatch} from 'react-redux'
 import {selectBar} from '../actions/selectBar'
+import {clearSelectedBar} from '../actions/clearSelectedBar'
 
 const libraries = ["places"];
 const mapContainerStyle = {
-    width: "75vw",
-    height: "75vh"
+    width: "50vw",
+    height: "80vh"
 }
 const center = {
-    lat: 40.7128,
-    lng: -73.935242
+    lat: 40.745312,
+    lng: -73.99600
 }
 
 //snazzy maps for this! 
@@ -50,7 +51,7 @@ export default function Map(props){
 
   
     return( 
-    <div>
+    <div >
         <h1> Happy Hour </h1>
         
         <Search panTo={panTo}/>
@@ -78,9 +79,10 @@ export default function Map(props){
                 lng: parseFloat(selectedBar.lng)
             }} onCloseClick={()=> {
                 setSelectedBar(null)
+                dispatch(clearSelectedBar())
             }}>
                 <div>
-                    <h3>{selectedBar.name}</h3>
+                    <p>{selectedBar.name}</p>
                 </div>
                 </InfoWindow> 
            

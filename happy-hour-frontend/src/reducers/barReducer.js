@@ -24,6 +24,11 @@ export default function barReducer(state = {bars: [], googleBars: [], selectedBa
                 ...state,
                 location: action.payload
             }
+        case "CLEAR_SELECTED":
+            return {
+                ...state,
+                selectedBar: ""
+            }
         default:
             return state
     }

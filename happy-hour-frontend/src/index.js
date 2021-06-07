@@ -7,6 +7,7 @@ import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
 import barReducer from './reducers/barReducer'
 import {BrowserRouter as Router} from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

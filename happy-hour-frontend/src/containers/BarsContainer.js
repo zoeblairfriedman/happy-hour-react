@@ -6,6 +6,7 @@ import {Route, Switch} from 'react-router-dom'
 import BarSearch from '../components/BarSearch'
 import Bar from '../components/Bar'
 import HappyNow from '../components/HappyNow'
+// import { clearSelectedBar } from '../actions/clearSelectedBar'
 
 class BarsContainer extends React.Component {
 
@@ -16,16 +17,17 @@ class BarsContainer extends React.Component {
     render(){
 
         return(
-        <div>
+        <div className="mapContainer">
 
         <div className='sideBySide'>
             <Switch>
             <Route exact path='/bars/now' component={HappyNow}/>
             <Route path="/bars" render={(routerProps) => <Map {...routerProps} bars={this.props.bars}/>}/>
             </Switch>
+            <Bar bar={this.props.selectedBar !== "" ? this.props.selectedBar : ""}/>
             <Route exact path='/bars/new' component={BarSearch}/>
         </div>
-            <Bar bar={this.props.selectedBar !== "" ? this.props.selectedBar : ""}/>
+            
         </div>
         )
         }
@@ -38,5 +40,12 @@ const mapStateToProps = state => {
         selectedBar: state.selectedBar
     }
 }
+
+// const mapDispatchToProps = dispatch => {
+//     return {
+//       fetchBarsBackend: () => {dispatch(fetchBarsBackend())},
+//       clearSelectedBar: () => {dispatch(clearSelectedBar())}
+//     };
+//   };
 
 export default connect(mapStateToProps, {fetchBarsBackend})(BarsContainer);
