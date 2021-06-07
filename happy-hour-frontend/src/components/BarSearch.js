@@ -29,12 +29,15 @@ function BarSearch(props) {
        if (!selected) {
         return (
             <div className="barList" >
+            <p>You must enter in location prior to search</p>
             <button onClick={() => {searchBars()}}>Search Area</button>
-          {props.googleBars.map(b => 
-          <div key={b.place_id} onClick={()=> handleClick(b)}>
-          <GoogleBar key={b.place_id} bar={b}/>
-          </div>
-          )}
+          
+            {props.googleBars.map(b => 
+            <div key={b.place_id} onClick={()=> handleClick(b)}>
+            <GoogleBar key={b.place_id} bar={b}/>
+            </div>
+            )}
+            
             </div>
         )} else {
             return(
