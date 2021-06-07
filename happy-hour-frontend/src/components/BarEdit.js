@@ -60,7 +60,7 @@ class BarEdit extends React.Component {
         e.target.innerText = "VERIFIED!"
         this.setState({
          ...this.state,
-         verified: new Date
+         verified: new Date()
      })
     }
 

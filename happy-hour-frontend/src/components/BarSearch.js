@@ -4,6 +4,7 @@ import { fetchGoogleBars } from '../actions/fetchGoogleBars'
 import { useDispatch } from "react-redux";
 import GoogleBar from './GoogleBar'
 import BarInput from './BarInput'
+import BarEdit from './BarEdit'
 
 
 function BarSearch(props) {
@@ -12,6 +13,10 @@ function BarSearch(props) {
 
     function handleClick(bar){
         setSelectedBar(bar)
+    }
+
+    function returnBar(bar){
+        return props.bars.find(b => b.placeId === bar.place_id)
     }
     
     const dispatch = useDispatch()
@@ -24,7 +29,7 @@ function BarSearch(props) {
        if (!selectedBar) {
         return (
             <div>
-           <button onClick={() => {searchBars()}}>Add new Bar through Google Search</button>
+           <button onClick={() => {searchBars()}}>Search Area</button>
           {props.googleBars.map(b => 
           <div key={b.place_id} onClick={()=> handleClick(b)}>
           <GoogleBar key={b.place_id} bar={b}/>
@@ -34,9 +39,7 @@ function BarSearch(props) {
         )} else {
             return(
                 <div>
-                    {/* here is where i want it to conditionally render */}
-                    {/* <BarEdit bar={bar}/> */}
-                    <BarInput bar={selectedBar}/>
+                    {!!returnBar(selectedBar) ? <BarEdit bar={returnBar(selectedBar)}/> : <BarInput bar={selectedBar}/>}    
                 </div>
             )
         }
@@ -47,7 +50,8 @@ function BarSearch(props) {
 const mapStateToProps = state => {
         return {
             location: state.location,
-            googleBars: state.googleBars
+            googleBars: state.googleBars,
+            bars: state.bars
         }
     }
 //i feel like i'm not supposed to be using connect here, right?

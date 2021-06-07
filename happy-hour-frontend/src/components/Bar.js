@@ -16,7 +16,6 @@ const Bar = (props) => {
             <p>Start: {bar.formattedStart ? bar.formattedStart : "?"} End: {props.bar.formattedEnd ? props.bar.formattedEnd : "?"} </p>
             <p>{bar.dateArray}</p>
             <p>Deals: {bar.details}</p>
-            <BarEdit bar={bar}/>
         </div>
     )
 } else {
