@@ -1,14 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
-Bar.create(name: 'Porchlight', place_id: 'ChIJL4_WOLZZwokRkCkqv1Mqrls', lat: 40.742810, lng: -74.008870,  details: "expensive happy hour cocktails")
-Bar.create(name: 'Frying Pan', place_id: 'ChIJTWX832NYwokRN6TVfy29Eo4', lat: 40.757690, lng: -74.004570,  details: "not sure what the happy hour is here but love the spot")
 
-# User.create(name: "Mom", email: "Mom@email.com")
-
-# Favorite.create(user_id: 1, bar_id: 1)
+Bar.create(name: 'Trailer Park Lounge', sunday: 1, monday: 1, tuesday: 1, wednesday: 1, thursday: 1, friday: 1, saturday: 1, start: "2000-01-01 16:00:00", end: "2000-01-01 18:00:00", verified: "2021-06-08 15:18:08.360000", address: "271 W 23rd St, New York", place_id: 'ChIJKUCCVrpZwokRzavYvxNL6Jw', lat: 40.745325, lng: -73.997813,  website: "http://www.trailerparklounge.com/", details: "$3 cans of PBR, $5 margarita on the rocks, $6 frozen margaritas")
+Bar.create(name: 'Jakes Saloon', sunday: 1, monday: 1, tuesday: 1, wednesday: 1, thursday: 1, friday: 1, saturday: 0, start: "2000-01-01 16:00:00", end: "2000-01-01 19:00:00", verified: "2021-06-08 15:21:06.365000", address: "206 W 23rd St, New York", place_id: 'ChIJGfkVIrtZwokRYaP5HOUw0G0', lat: 40.744116, lng: -73.996204,  details: "Bud Light Draft $3, Miller Light $3, Well Drinks $5, Cosmos $5")
+Bar.create(name: 'Mess Hall', sunday: 0, monday: 1, tuesday: 1, wednesday: 1, thursday: 0, friday: 0, saturday: 0, start: "2000-01-01 16:00:00", end: "2000-01-01 10:00:00", verified: "2021-06-08 15:23:39.693000", address: "2194 Frederick Douglass Blvd, New York", place_id: 'ChIJmc_mBRT2wokRjtM7hV2F0F0', lat: 40.8059268, lng: -73.9539992,  details: "Pickleback $6.50, Select Draughts $5.50, Beer Jugs $22, Well Drinks $6.50")

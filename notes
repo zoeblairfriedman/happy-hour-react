@@ -1,49 +1,17 @@
-verified happy-hour spots (Bar)
-has_many favorites
-
-id 
-name
-days of the week: [] <---these may need to be DOW booleans
-start time datetime
-end time datetime
-date verified datetime
-deals: string
-address
-phone
-site
-pic
-
-User
-has_many favorites
-has_many bars through :favorites
-
-id
-name
-password_digest
-email
-
-Favorites
-belongs_to user 
-belongs_to bar
 
 TO DO:
+Write read me
+When you submit bar it shows the updated bar
 fix button so it doesn't sho wuntil the search
-add a route!!!
-make you not have to refresh
-
 make websites actual links
 get image going
-add styling
-are unverified bars from 1969??
+make styling better
+show who's happy now
+hide API key
 
 WISHLIST:
-reformat phone input to maek it a clean integer
-gold stars for most recent verification
-setup password, login etc. 
+reformat phone # to make sure it's correct format
+users & logins & sessions
+favorites
+gold stars for most recent verifications
 
-
-IF YOU WANT DYNAMIC LINKS FOR THE bars
-rewatch the livebuild with the link_to and the history and match, etc
-
-THE USER FAVORITES
-When you want to do users and nested routes for their favorites check out video 7 around 12 minutes in or check out accounts container in the repo
