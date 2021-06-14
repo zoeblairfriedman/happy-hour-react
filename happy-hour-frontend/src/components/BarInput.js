@@ -108,11 +108,5 @@ class BarInput extends React.Component {
 }
 
 
-const mapStateToProps = state => {
-    return {
-        bars: state.bars,
-    }
-}
 
-
-export default connect(mapStateToProps, {addBar})(BarInput);
+export default connect(null, {addBar})(BarInput);

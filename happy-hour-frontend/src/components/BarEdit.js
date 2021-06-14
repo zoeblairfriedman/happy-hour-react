@@ -106,11 +106,5 @@ class BarEdit extends React.Component {
 }
 
 
-const mapStateToProps = state => {
-    return {
-        bars: state.bars,
-    }
-}
 
-
-export default connect(mapStateToProps, {editBar})(BarEdit);
+export default connect(null, {editBar})(BarEdit);
