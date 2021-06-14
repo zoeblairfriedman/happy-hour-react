@@ -5,13 +5,17 @@ class Bar < ApplicationRecord
     validates :name, presence: true
 
     def make_date_array
-        dates = []
+        array = []
         self.attributes.each do |key, value|
           if value == true
-            dates.push(key)
+            array.push(key)
           end
         end 
-        return dates.join(" ")
+        return nil if array.nil?
+        return array[0] if array.length == 1
+        return array[0..-2].join(', ') + " and " + array[-1] if array.length > 1
     end
+
+
 
 end
