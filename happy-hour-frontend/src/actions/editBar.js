@@ -9,9 +9,12 @@ export const editBar = (formData) => {
             body: JSON.stringify(formData)
         })
         .then(r => r.json())
-        .then(bar => dispatch({
-            type: "EDIT_BAR",
-            payload: bar
-        }))
+        .then(bar => {
+            if (!!bar.id) {
+            dispatch({type: "EDIT_BAR", payload: bar})
+            } else {
+                window.alert(bar[0])
+            }})
+            .catch(() => alert("Apologies, there is an issue with the server. Please try again later."))
     }
 }
