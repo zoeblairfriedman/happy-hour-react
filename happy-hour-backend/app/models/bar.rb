@@ -3,6 +3,7 @@ class Bar < ApplicationRecord
 
     validates_uniqueness_of :place_id
     validates :name, presence: true
+    validates :details, presence: true
 
     def make_date_array
         array = []

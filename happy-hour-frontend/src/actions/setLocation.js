@@ -5,6 +5,5 @@ const setLocation = (locationObj) => {
     }
 }
 
-//go back to thunk for this
 
 export default setLocation

@@ -6,7 +6,7 @@ import {Route, Switch} from 'react-router-dom'
 import BarSearch from '../components/BarSearch'
 import Bar from '../components/Bar'
 import HappyNow from '../components/HappyNow'
-// import { clearSelectedBar } from '../actions/clearSelectedBar'
+
 
 class BarsContainer extends React.Component {
 
@@ -41,11 +41,6 @@ const mapStateToProps = state => {
     }
 }
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//       fetchBarsBackend: () => {dispatch(fetchBarsBackend())},
-//       clearSelectedBar: () => {dispatch(clearSelectedBar())}
-//     };
-//   };
+
 
 export default connect(mapStateToProps, {fetchBarsBackend})(BarsContainer);

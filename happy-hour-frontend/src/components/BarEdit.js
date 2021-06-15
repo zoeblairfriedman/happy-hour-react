@@ -63,7 +63,7 @@ class BarEdit extends React.Component {
      })
     }
 
-// make sure this verification logic works
+
     render(){
 
         let button;

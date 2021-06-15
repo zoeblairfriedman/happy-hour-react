@@ -39,6 +39,7 @@ class BarInput extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.addBar(this.state)
+        // perhaps i can remove it from dom here?
         this.setState({
             name: "",
             details: "",

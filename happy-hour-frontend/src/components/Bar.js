@@ -1,7 +1,5 @@
 import React from 'react'
 
-
-
 const Bar = (props) => {
     let bar = props.bar
     if (props.bar !== ""){

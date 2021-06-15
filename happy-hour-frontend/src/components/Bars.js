@@ -3,7 +3,6 @@ import React from 'react'
 
 
 const Bars = (props) => {
-console.log(props.bars)
     return (
         <div>
             Bars:

@@ -1,12 +1,12 @@
 import usePlacesAutocomplete, {getGeocode, getLatLng} from "use-places-autocomplete"
-import {Combobox, ComboboxInput, ComboboxOption, ComboboxPopover, CompoboxList} from "@reach/combobox"
+import {Combobox, ComboboxInput, ComboboxOption, ComboboxPopover} from "@reach/combobox"
 import "@reach/combobox/styles.css";
 import {useDispatch} from 'react-redux'
 import React from 'react'
 import setLocation from '../actions/setLocation'
 
 
-//IF YOU HAVE TIME ADD THE GEOLOCATOR
+
 function Search({panTo}){
     //what is this syntax?
     const {ready, value, suggestions: {status, data}, setValue, clearSuggestions} = usePlacesAutocomplete({
@@ -24,7 +24,6 @@ const dispatch = useDispatch()
             setValue(address, false)
             clearSuggestions()
             try {
-                //what is this syntax??? this needs to be thunk in action creator!
                 const results = await getGeocode({address})
                 const { lat, lng } = await getLatLng(results[0])
                 panTo({lat, lng})
@@ -42,10 +41,9 @@ const dispatch = useDispatch()
                 disabled={!ready}
                 placeholder="Where are we drinking?"
                 />
-        {/* is this where my key error is coming from? revisit this in video rewatch please */}
         <ComboboxPopover>
             {status === "OK" && data.map(({id, description})=>
-            <ComboboxOption key={id} value={description}/>
+            <ComboboxOption key={Math.random() * (100 - 1) + 1} value={description}/>
             )}
         </ComboboxPopover>
         </Combobox>
