@@ -7,17 +7,12 @@ import {useDispatch} from 'react-redux'
 import {selectBar} from '../actions/selectBar'
 import {clearSelectedBar} from '../actions/clearSelectedBar'
 
+//separating this out keeps react from rerendering unnecessarily
 const libraries = ["places"];
-const mapContainerStyle = {
-    width: "50vw",
-    height: "80vh"
-}
-const center = {
-    lat: 40.745312,
-    lng: -73.99600
-}
 
-//snazzy maps for this! 
+//these are all the props for the Google Maps component
+const mapContainerStyle = {width: "50vw", height: "80vh"}
+const center = {lat: 40.745312, lng: -73.99600}
 const options = {
     styles: mapStyles,
     disableDefaultUI: true,
@@ -28,20 +23,24 @@ export default function Map(props){
 
     //this is my state for my selected bars, starting as null, getting value when clicked
     const [selectedBar, setSelectedBar] = useState(null);
+    // I need to dispatch the selectedBar to the store for other components to use
     const dispatch = useDispatch()
+    // this is from google maps API that loads the libraries from google
     const { isLoaded, loadError } = useLoadScript ({
     googleMapsApiKey: "AIzaSyBEBEXXRvP5A3JAuZ2hL2Z2ShMPxzWeMxQ",
+    // googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY, <-- can't get this to work
     libraries
     })
 
-    // useCallback to "it only ever creates one of these functions???" what is the empty array after?
+    //
     const panTo = React.useCallback(({lat, lng}) => {
         mapRef.current.panTo({lat, lng});
         mapRef.current.setZoom(14);
         }, []) 
 
-    //saving it to useRef lets us retain state without rerendering
+    //saves a ref to the map instance to help move where the map is. You use ref when you don't want things to rerender.
     const mapRef = React.useRef();
+    //gives us the map that we can assign to use later without causing rerenders
     const onMapLoad = React.useCallback((map) => {
         mapRef.current = map;
     }, [])
@@ -83,6 +82,7 @@ export default function Map(props){
             }}>
                 <div>
                     <p>{selectedBar.name}</p>
+                    <p>{selectedBar.details}</p>
                 </div>
                 </InfoWindow> 
            

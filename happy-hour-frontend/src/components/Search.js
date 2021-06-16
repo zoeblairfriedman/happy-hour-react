@@ -8,8 +8,9 @@ import setLocation from '../actions/setLocation'
 
 
 function Search({panTo}){
-    //what is this syntax?
+    // these are deconstructed variables from what we return from the usePlacesAutcomplete hook
     const {ready, value, suggestions: {status, data}, setValue, clearSuggestions} = usePlacesAutocomplete({
+        //this is a hook that we are going to pass options into, it's going to prefer options near new york. it wants a function
         requestOptions: {
             location: {lat: () => 40.7128, lng: () => -73.935242}
         ,
@@ -21,14 +22,14 @@ const dispatch = useDispatch()
     return (
     <div className="search">
         <Combobox onSelect={async (address) => {
+            // perhaps this second argument in setValue could make this work easier with googleAPI. pelase investigate
             setValue(address, false)
             clearSuggestions()
             try {
                 const results = await getGeocode({address})
                 const { lat, lng } = await getLatLng(results[0])
                 panTo({lat, lng})
-                dispatch(setLocation({lat, lng}))
-               
+                dispatch(setLocation({lat, lng}))    
             } catch(error) {
                 console.log(error)
             }
@@ -42,7 +43,7 @@ const dispatch = useDispatch()
                 placeholder="Where are we drinking?"
                 />
         <ComboboxPopover>
-            {status === "OK" && data.map(({id, description})=>
+            {status === "OK" && data.map(({description})=>
             <ComboboxOption key={Math.random() * (100 - 1) + 1} value={description}/>
             )}
         </ComboboxPopover>

@@ -29,12 +29,12 @@ function BarSearch() {
         const lng = location.lng
         dispatch(fetchGoogleBars(lat, lng))
     }
+
+
        if (!selected) {
         return (
             <div className="barList" >
-            <p>You must enter in location prior to search</p>
-            <button onClick={() => {searchBars()}}>Search Area</button>
-          
+            {!!location.lat ? <button onClick={() => {searchBars()}}>Search Area</button> : <p>Specify a location to search</p>}
             {googleBars.map(b => 
             <div key={b.place_id} onClick={()=> handleClick(b)}>
             <GoogleBar key={b.place_id} bar={b}/>

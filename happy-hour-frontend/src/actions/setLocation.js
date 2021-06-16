@@ -7,3 +7,4 @@ const setLocation = (locationObj) => {
 
 
 export default setLocation
+

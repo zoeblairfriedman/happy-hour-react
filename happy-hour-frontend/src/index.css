@@ -34,6 +34,7 @@ h1 {
   flex-direction:row;
   /* background: rgba(107, 109, 107, 0.8); */
   left: 2rem;
+  padding: 30px 30px;
 }
 
 .unverified{
@@ -42,10 +43,6 @@ h1 {
 
 .verified{
   color: green
-}
-
-.mapContainer{
-  padding: 30px 30px;
 }
 
 

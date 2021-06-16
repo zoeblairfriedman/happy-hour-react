@@ -5,6 +5,8 @@ HAPPY HOUR
 * CORS Extension
 Currently you will need a CORS Changer extension to conduct necessary Google API searches. We recommend: https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc
 
+<!-- * // If people get their own API you need the Maps API AND the Places API enabled.  -->
+
 * Setup Rails Backend
 Install the gems required by the application by running 'bundle install'
 CD into the backend folder 'happy-hour-react-backend'

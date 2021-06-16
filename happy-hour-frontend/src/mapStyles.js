@@ -1,3 +1,5 @@
+//snazzy maps!
+
 export default [
     {
         "featureType": "water",

@@ -17,7 +17,6 @@ class BarsContainer extends React.Component {
     render(){
 
         return(
-        <div className="mapContainer">
 
         <div className='sideBySide'>
             <Switch>
@@ -27,8 +26,7 @@ class BarsContainer extends React.Component {
             <Bar bar={this.props.selectedBar !== "" ? this.props.selectedBar : ""}/>
             <Route exact path='/bars/new' component={BarSearch}/>
         </div>
-            
-        </div>
+
         )
         }
 }

@@ -4,7 +4,7 @@ const Bar = (props) => {
     let bar = props.bar
     if (props.bar !== ""){
         return (
-        <div class="barShow">
+        <div className="barShow">
             <h3>{bar.name}</h3>
             <h4>Last verified: {bar.formattedVerified}</h4>
             <p>{bar.address}</p>
