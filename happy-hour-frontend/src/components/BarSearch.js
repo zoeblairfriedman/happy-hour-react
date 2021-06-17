@@ -6,7 +6,6 @@ import GoogleBar from './GoogleBar'
 import BarInput from './BarInput'
 import BarEdit from './BarEdit'
 
-
 function BarSearch() {
 
     const [selected, setSelected] = useState()

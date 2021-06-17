@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const Bar = (props) => {
     let bar = props.bar
+
+
     if (props.bar !== ""){
         return (
         <div className="barShow">
