@@ -79,26 +79,37 @@ class BarInput extends React.Component {
                 
         return (
             <div>
-                Verify a happy hour:
                 <form onSubmit={this.handleSubmit}>
                     <h2>{this.state.name}</h2>
-                    <input type="text" placeholder="website" value={this.state.website} name="website" onChange={this.handleChange} />
-                    <br></br>
-                    <input type="integer" placeholder="phone" value={this.state.phone} name="phone" onChange={this.handleChange} />
-                    <br></br>
-                    <label>Start Time:</label><input type="time" value={this.state.start} name="start" onChange={this.handleChange}/>
-                    <br></br>
-                    <label>End Time:</label><input type="time" value={this.state.end} name="end" onChange={this.handleChange}/>
-                    <br></br>
-                    <label>Monday:</label><input type="checkbox" name="monday" checked={this.state.monday} onChange={this.handleChange} />
-                    <label>Tuesday:</label><input type="checkbox" name="tuesday" checked={this.state.tuesday} onChange={this.handleChange}/>
-                    <label>Wednesday:</label><input type="checkbox" name="wednesday" checked={this.state.wednesday} onChange={this.handleChange}/>
-                    <label>Thursday:</label><input type="checkbox" name="thursday" checked={this.state.thursday} onChange={this.handleChange}/>
-                    <label>Friday:</label><input type="checkbox" name="friday" checked={this.state.friday} onChange={this.handleChange}/>
-                    <label>Saturday:</label><input type="checkbox" name="saturday" checked={this.state.saturday} onChange={this.handleChange}/>
-                    <label>Sunday:</label><input type="checkbox" name="sunday" checked={this.state.sunday} onChange={this.handleChange}/>
-                    <br></br>
-                    <textarea placeholder="details" value={this.state.details} name="details" onChange={this.handleChange}></textarea>                    <br/>
+                    <div className="mb-3">
+                        <label for="website">Website:</label>
+                        <input type="text" className="form-control" id="website" value={this.state.website} name="website" onChange={this.handleChange} />
+                    </div>
+                    <div >
+                        <label for="phone">Phone Number</label>
+                        <input type="integer" className="form-control" id="phone" placeholder="phone" value={this.state.phone} name="phone" onChange={this.handleChange} />
+                    </div>
+                    <div className="form-group">
+                        <label>Start Time:</label>
+                        <input type="time" value={this.state.start} className="form-control" name="start" onChange={this.handleChange}/>
+                    </div>
+                    <div>
+                        <label>End Time:</label>
+                        <input type="time" value={this.state.end} className="form-control" name="end" onChange={this.handleChange}/>
+                    </div>
+                    <h5 className="mt-2">Days of the week:</h5>
+                    <label>Monday:</label><input className="m-1" type="checkbox" name="monday" checked={this.state.monday} onChange={this.handleChange} />
+                    <label>Tuesday:</label><input className="m-1" type="checkbox" name="tuesday" checked={this.state.tuesday} onChange={this.handleChange}/>
+                    <label>Wednesday:</label><input className="m-1" type="checkbox" name="wednesday" checked={this.state.wednesday} onChange={this.handleChange}/>
+                    <label>Thursday:</label><input className="m-1" type="checkbox" name="thursday" checked={this.state.thursday} onChange={this.handleChange}/>
+                    <label>Friday:</label><input className="m-1" type="checkbox" name="friday" checked={this.state.friday} onChange={this.handleChange}/>
+                    <label>Saturday:</label><input className="m-1" type="checkbox" name="saturday" checked={this.state.saturday} onChange={this.handleChange}/>
+                    <label>Sunday:</label><input className="m-1" type="checkbox" name="sunday" checked={this.state.sunday} onChange={this.handleChange}/>
+                    
+                    <div>
+                        <label for="details" className="h5 mt-2">Happy Hour Deals:</label>
+                        <textarea value={this.state.details} className="form-control" name="details" onChange={this.handleChange}></textarea>     
+                    </div>
                     <input type="submit"/>
                 </form>
                 {button}

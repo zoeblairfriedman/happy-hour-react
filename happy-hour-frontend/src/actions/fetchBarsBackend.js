@@ -5,7 +5,8 @@ return (dispatch) => {
   .then(bars => dispatch({
       type: "FETCH_BARS", 
       payload: bars
-  }))
+  })
+  )
 }
 }
 
