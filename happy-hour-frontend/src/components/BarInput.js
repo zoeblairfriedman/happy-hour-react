@@ -67,14 +67,14 @@ class BarInput extends React.Component {
      })
     }
 
-// make sure this verification logic works
+// this logic is crazy, please fix
     render(){
 
         let button;
         if (this.state.verified !== ""){
-            button = <button id="verify-button" className="verified" onClick={(e) => this.verifyBar(e)}>RE-VERIFY</button>
+            button = <button id="verify-button" className="btn btn-success" onClick={(e) => this.verifyBar(e)}>RE-VERIFY</button>
         } else { 
-            button = <button id="verify-button" className="unverified" onClick={(e) => this.verifyBar(e)}>UNVERIFIED</button>
+            button = <button id="verify-button" className="btn btn-warning" onClick={(e) => this.verifyBar(e)}>UNVERIFIED</button>
         }
                 
         return (
@@ -110,7 +110,7 @@ class BarInput extends React.Component {
                         <label for="details" className="h5 mt-2">Happy Hour Deals:</label>
                         <textarea value={this.state.details} className="form-control" name="details" onChange={this.handleChange}></textarea>     
                     </div>
-                    <input type="submit"/>
+                    <input className="btn btn-info my-3" type="submit"/>
                 </form>
                 {button}
                 <br></br>
